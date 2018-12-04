@@ -165,7 +165,7 @@ function ChangeDisplay() {
 
 function required()
 {
-	var empty = document.forms["theForm"]["owner name"].value;
+	var empty = document.forms["theForm"]["ownerName"].value;
 	if (empty == "")
 	{
 	alert("Please input an Owner");
@@ -216,10 +216,10 @@ Type: <select name="copyrightType" id="copyType" onchange="ChangeDisplay()">
 
 
 *Owner: 
-<input type="text" name="owner name"> 
+<input type="text" name="ownerName"> 
 </br>
 Owner Address:
-<input type="text" name="owner address">
+<input type="text" name="ownerAddress">
 </br>
 *URL:
 <input type="url" name="URL">
@@ -229,7 +229,7 @@ Owner Address:
 </br>
 
 <div id="copySelect">
-</br></br>Copyright Specifics:</br>
+</br></br>Copyright Specific:</br>
 </div>
 
 <div id="regNum">
@@ -250,7 +250,7 @@ Type of Work:
 
 
 <div id="patentSelect" style="display:none">
-</br></br>Patent Specifics:</br>
+</br></br>Patent Specific:</br>
 </div>
 
 <div id="appNum" style="display:none">
@@ -275,7 +275,7 @@ Abstract:
 </div>
 
 <div id="tradeSelect" style="display:none">
-</br></br>Trademark Specifics:</br>
+</br></br>Trademark Specific:</br>
 </div>
 
 <div id="serialNum" style="display:none">
