@@ -38,9 +38,133 @@ li a:hover:not(.active) {
 }
 /* nav bar styling ends here */
 
+h1 {
+	text-align: center; 
+	font-family: Arial, Helvetica, sans-serif; 
+}
+
+h2{
+	text-align: center; 
+	font-family: Arial, Helvetica, sans-serif; 
+}
+
+input[type="submit"] {
+	background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
 </style>
 </head>
 <body>
+
+<script>
+function ChangeDisplay() {
+	var copyrightType = document.getElementById("copyType");
+	
+	var copySelect = document.getElementById("copySelect");
+	var regNum = document.getElementById("regNum");
+	var regDate = document.getElementById("regDate");		
+	var pubDate = document.getElementById("pubDate");
+	var workType = document.getElementById("workType");
+
+	var patentSelect = document.getElementById("patentSelect");
+	var appNum = document.getElementById("appNum");
+	var patentNum = document.getElementById("patentNum");
+	var filingDate = document.getElementById("filingDate");
+	var issueDate = document.getElementById("issueDate");
+	var abstract = document.getElementById("abstract");	
+
+	var tradeSelect = document.getElementById("tradeSelect");
+	var serialNum = document.getElementById("serialNum");		
+	var registNum = document.getElementById("registNum");		
+	var status = document.getElementById("status");
+
+	if ( copyrightType.value == "copyright" )
+	{
+	copySelect.style.display = "block";
+	regNum.style.display="initial";
+	regDate.style.display="initial";
+	pubDate.style.display="initial";
+	workType.style.display="initial";
+	patentSelect.style.display="none";
+	appNum.style.display="none";
+	patentNum.style.display="none";
+	filingDate.style.display="none";
+	issueDate.style.display="none";
+	abstract.style.display="none";
+	tradeSelect.style.display="none";
+	serialNum.style.display="none";
+	registNum.style.display="none";
+	status.style.display="none";	
+	}
+	else if ( copyrightType.value == "patent" )
+	{
+	copySelect.style.display = "none";
+	regNum.style.display="none";
+	regDate.style.display="none";
+	pubDate.style.display="none";
+	workType.style.display="none";
+	patentSelect.style.display="initial";
+	appNum.style.display="initial";
+	patentNum.style.display="initial";
+	filingDate.style.display="initial";
+	issueDate.style.display="initial";
+	abstract.style.display="initial";
+	tradeSelect.style.display="none";
+	serialNum.style.display="none";
+	registNum.style.display="none";
+	status.style.display="none";
+	}
+	else if ( copyrightType.value == "trademark" )
+	{
+	copySelect.style.display = "none";
+	regNum.style.display="none";
+	regDate.style.display="none";
+	pubDate.style.display="none";
+	workType.style.display="none";
+	patentSelect.style.display="none";
+	appNum.style.display="none";
+	patentNum.style.display="none";
+	issueDate.style.display="none";
+	abstract.style.display="none";
+	tradeSelect.style.display="initial";
+	serialNum.style.display="initial";
+	registNum.style.display="initial";
+	status.style.display="initial";
+	filingDate.style.display="initial";	
+	}
+}
+
+function required()
+{
+	var empty = document.forms["theForm"]["owner name"].value;
+	if (empty == "")
+	{
+	alert("Please input an Owner");
+	return false;
+	}
+	
+	var empty = document.forms["theForm"]["URL"].value;
+	if (empty == "")
+	{
+	alert("Please input a URL");
+	return false;
+	}
+
+	var empty = document.forms["theForm"]["Title"].value;
+	if (empty == "")
+	{
+	alert("Please input a Title");
+	return false;
+	}
+
+	return true;
+}
+</script>
 
 <ul>
   <li><a href="search.html">Home</a></li>
@@ -48,8 +172,118 @@ li a:hover:not(.active) {
   <li><a class="active" href="insert.html">Insert</a></li>
 </ul>
 
-<h1>New Record</h1>
-<hr>
+<h1>Insert</h1>
 
+<form name="theForm" action="insert_page.php" onsubmit="return required()" style="text-align:left">
+<center>
+
+*Fields that are starred are required
+</br>
+</br>
+Type: <select name="copyrightType" id="copyType" onchange="ChangeDisplay()">
+	<option selected value="copyright"> Copyright </option>
+	<option value="patent"> Patent </option>
+	<option value="trademark"> Trademark </option>
+</select>
+
+
+</br>
+
+
+*Owner: 
+<input type="text" name="owner name"> 
+</br>
+Owner Address:
+<input type="text" name="owner address">
+</br>
+*URL:
+<input type="url" name="URL">
+</br>
+*Title:
+<input type="text" name="Title">
+</br>
+
+<div id="copySelect">
+</br></br>Copyright Specific:</br>
+</div>
+
+<div id="regNum">
+Registration Number:
+<input type="text" name="registrationNum">
+</br>
+</div>
+<div id="regDate">
+Registration Date:
+<input type="date" name="registrationDate">
+</br>
+</div>
+<div id="pubDate">
+Publication Date:
+<input type="date" name="publicationDate">
+</br>
+</div>
+<div id="workType">
+Type of Work:
+<input type="text" name="type">
+</br>
+</div>
+
+
+<div id="patentSelect" style="display:none">
+</br></br>Patent Specific:</br>
+</div>
+
+<div id="appNum" style="display:none">
+Application Number:
+<input type="text" name="appNum">
+</br>
+</div>
+<div id="patentNum" style="display:none">
+Patent Number:
+<input type="text" name="patentNum">
+</br>
+</div>
+<div id="issueDate" style="display:none">
+Issue Date:
+<input type="date" name="issueDate">
+</br>
+</div>
+<div id="abstract" style="display:none">
+Abstract:
+<input type="text" name="abstract">
+</br>
+</div>
+
+<div id="tradeSelect" style="display:none">
+</br></br>Trademark Specific:</br>
+</div>
+
+<div id="serialNum" style="display:none">
+Serial Number:
+<input type="text" name="serialNum">
+</br>
+</div>
+<div id="registNum" style="display:none">
+Registration Number:
+<input type="text" name="registNum">
+</br>
+</div>
+<div id="status" style="display:none">
+Status:
+<input type="text" name="status">
+</br>
+</div>
+<div id="filingDate" style="display:none">
+Filing Date:
+<input type="date" name="filingDate">
+</br>
+</div>
+
+</br>
+</br>
+<input type="submit" value="Search">
+
+</center>
+</form>
 </body>
 </html>
