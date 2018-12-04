@@ -83,6 +83,8 @@ function ChangeDisplay() {
 	var registNum = document.getElementById("registNum");		
 	var status = document.getElementById("status");
 
+	var youtubeSelect = document.getElementById("youtubeSelect");
+	
 	if ( copyrightType.value == "copyright" )
 	{
 	copySelect.style.display = "block";
@@ -100,6 +102,7 @@ function ChangeDisplay() {
 	serialNum.style.display="none";
 	registNum.style.display="none";
 	status.style.display="none";	
+	youtubeSelect.style.display="none";
 	}
 	else if ( copyrightType.value == "patent" )
 	{
@@ -118,6 +121,7 @@ function ChangeDisplay() {
 	serialNum.style.display="none";
 	registNum.style.display="none";
 	status.style.display="none";
+	youtubeSelect.style.display="none";
 	}
 	else if ( copyrightType.value == "trademark" )
 	{
@@ -136,6 +140,26 @@ function ChangeDisplay() {
 	registNum.style.display="initial";
 	status.style.display="initial";
 	filingDate.style.display="initial";	
+	youtubeSelect.style.display="none";
+	}
+	else if ( copyrightType.value == "youtubevideo" )
+	{
+	copySelect.style.display = "none";
+	regNum.style.display="none";
+	regDate.style.display="none";
+	workType.style.display="none";
+	patentSelect.style.display="none";
+	appNum.style.display="none";
+	patentNum.style.display="none";
+	issueDate.style.display="none";
+	abstract.style.display="none";
+	tradeSelect.style.display="none";
+	serialNum.style.display="none";
+	registNum.style.display="none";
+	status.style.display="none";
+	filingDate.style.display="none";	
+	youtubeSelect.style.display="initial";
+	pubDate.style.display="initial";
 	}
 }
 
@@ -184,6 +208,7 @@ Type: <select name="copyrightType" id="copyType" onchange="ChangeDisplay()">
 	<option selected value="copyright"> Copyright </option>
 	<option value="patent"> Patent </option>
 	<option value="trademark"> Trademark </option>
+	<option value="youtubevideo"> Youtube Video </option>
 </select>
 
 
@@ -215,11 +240,6 @@ Registration Number:
 <div id="regDate">
 Registration Date:
 <input type="date" name="registrationDate">
-</br>
-</div>
-<div id="pubDate">
-Publication Date:
-<input type="date" name="publicationDate">
 </br>
 </div>
 <div id="workType">
@@ -276,6 +296,15 @@ Status:
 <div id="filingDate" style="display:none">
 Filing Date:
 <input type="date" name="filingDate">
+</br>
+</div>
+
+<div id="youtubeSelect" style="display:none">
+</br></br> Youtube Specifics:</br>
+</div>
+<div id="pubDate">
+Publication Date:
+<input type="date" name="publicationDate">
 </br>
 </div>
 
