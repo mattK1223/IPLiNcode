@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- JavaScript for dynamically populating second dropdown box -->
+<script type="text/javascript">
+	function populate(ts,fs){
+		var ts = document.getElementById(ts);
+		var fs = document.getElementById(fs);
+		fs.innerHTML = "";
+		if(ts.value == "all"){
+			var optionArr = ["any|Any","url|URL", "title|Title","owner|Owner"];
+		} 
+		else if(ts.value == "copyright"){
+			var optionArr = ["any|Any","url|URL","title|Title","owner|Owner","regnum|Registration #","regDate|Registration Date","pubDate|Publication Date","typeOfWork|Type of Work"];
+		}
+		else if(ts.value == "trademark"){
+			var optionArr = ["any|Any","url|URL","title|Title","owner|Owner","serialNum|Serial #","regNum|Registration #","status|Status","filingDate|Filing Date"];
+		}
+		else if(ts.value == "patent"){
+			var optionArr = ["any|Any","url|URL","title|Title","owner|Owner","appNum|Application #","patentNum|Patent #","filingDate|Filing Date","issueDate|Issue Date",""];
+		}
+		for(var option in optionArr){
+			var pair = optionArr[option].split("|");
+			var newOption = document.createElement("option");
+			newOption.value = pair[0];
+			newOption.innerHTML = pair[1];
+			fs.options.add(newOption);
+		}
+	}
+</script>
+
+<style>
+
+body {
+	background-color: lightblue; 
+}
+
+/* Nav bar styling begins here */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+/* nav bar styling ends here */
+
+h1 {
+	text-align: center; 
+	font-family: Arial, Helvetica, sans-serif; 
+}
+
+h2{
+	text-align: center; 
+	font-family: Arial, Helvetica, sans-serif; 
+}
+
+input[type="submit"] {
+	background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+form {
+	margin: 0 auto;
+	width: 550px;
+}
+
+</style>
+</head>
+<body>
+
+<ul>
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="about.html">About</a></li>
+</ul>
+
+<h1>IPLiN</h1>
+<h2>Intellectual Property Licensing Network</h2>
+
+<form action="search_page.php">
+<input type="text" name="keyword" placeholder="Keyword"> 
+<select name="table" id="tableSelect" onchange="populate(this.id,'fieldSelect')"> 
+	<option value="all">All</option>
+	<option value="copyright">Copyright</option>
+	<option value="trademark">Trademark</option>
+	<option value="patent">Patent</option>
+</select>
+<select name="column" id="fieldSelect">
+	<option value="any">Any</option>
+	<option value="url">URL</option>
+	<option value="title">Title</option>
+	<option value="owner">Owner</option>
+</select>
+<input type="submit" value="Search">
+</form>
+
+</body>
+</html>
