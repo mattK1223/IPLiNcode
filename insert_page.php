@@ -122,13 +122,107 @@ if($copyrightType === "copyright"){
 	echo("Successful insertion into table!");
 }
 else if($copyrightType === "trademark"){
+	if ( $serialNum === "" ) {
+		$serialNum= 'NULL'; }
+	if ($registNum === "" ) {
+		$registNum='NULL'; }
+	if ( $status === "" ) {
+		$status= 'NULL'; }
+	if ( $filingDate === "" ) {
+		$filingDate= 'NULL'; }
+	if ( $ownerA === "" ) {
+		$ownerA = 'NULL'; }	
+
+	$sql1 = "INSERT INTO ip (url, IP_ownerName,Title) VALUES ('$URL', '$ownerN','$Title')";
+	$sql2 = "INSERT INTO owner ( name, address ) VALUES ('$ownerN', '$ownerA')";
+
+	if  ( $conn->query($sql2) === TRUE ) {
+		if  ( $conn->query($sql1) === TRUE ) {
+			$new_id = mysqli_insert_id($conn);
+			$sql3 = "INSERT INTO trademark ( id, serialNum, registNum, status, filingDate ) VALUES ('$new_id', '$serialNum','$registNum','$status','$filingDate')";
+			if  ( $conn->query($sql3) === TRUE ) {}
+				else {
+					echo ("Error inserting into trademark table" . mysqli_error($conn));
+				}
 	
+		}
+			else {
+				echo("Error inserting into IP table" . mysqli_error($conn));
+			}
+	}
+	else {
+		echo("Error inserting into owner table" . mysqli_error($conn));
+	}	
+
+	echo("Successful insertion into table!");
 }
-else if($table === "patent"){
-	echo "trademark";
+else if($copyrightType === "patent"){
+	if ( $ownerA === "" ) {
+		$ownerA = 'NULL'; }
+	if ( $appNum === "" ) {
+		$appNum = 'NULL'; }		
+	if ( $patentNum === "" ) {
+		$patentNum = 'NULL'; }
+	if ( $filingDate === "" ) {
+		$filingDate = 'NULL'; }
+	if ( $issueDate === "" ) {
+		$issueDate = 'NULL'; }
+	if ( $abstract === "" ) {
+		$abstract = 'NULL'; }
+
+	$sql1 = "INSERT INTO ip (url, IP_ownerName,Title) VALUES ('$URL', '$ownerN','$Title')";
+	$sql2 = "INSERT INTO owner ( name, address ) VALUES ('$ownerN', '$ownerA')";
+
+	if  ( $conn->query($sql2) === TRUE ) {
+		if  ( $conn->query($sql1) === TRUE ) {
+			$new_id = mysqli_insert_id($conn);
+			$sql3 = "INSERT INTO patent ( id, appNum, patentNum, filingDate, issueDate, abstract ) VALUES ('$new_id', '$appNum','$patentNum','$filingDate','$issueDate','$abstract')";
+			if  ( $conn->query($sql3) === TRUE ) {}
+				else {
+					echo ("Error inserting into patent table" . mysqli_error($conn));
+				}
+	
+		}
+			else {
+				echo("Error inserting into IP table" . mysqli_error($conn));
+			}
+	}
+	else {
+		echo("Error inserting into owner table" . mysqli_error($conn));
+	}	
+
+	echo("Successful insertion into table!");
+
 }
-else if($table === "youtubevideo"){
-	echo "patent";
+else if($copyrightType === "youtubevideo"){
+	if ( $ownerA === "" ) {
+		$ownerA = 'NULL'; }
+	if ( $pubDate === "" ) {
+		$pubDate = 'NULL'; }
+
+	$sql1 = "INSERT INTO ip (url, IP_ownerName,Title) VALUES ('$URL', '$ownerN','$Title')";
+	$sql2 = "INSERT INTO owner ( name, address ) VALUES ('$ownerN', '$ownerA')";
+
+	if  ( $conn->query($sql2) === TRUE ) {
+		if  ( $conn->query($sql1) === TRUE ) {
+			$new_id = mysqli_insert_id($conn);
+			$sql3 = "INSERT INTO youtubevideo ( id, publicationDate ) VALUES ('$new_id','$pubDate')";
+			if  ( $conn->query($sql3) === TRUE ) {}
+				else {
+					echo ("Error inserting into youtubevideo table" . mysqli_error($conn));
+				}
+	
+		}
+			else {
+				echo("Error inserting into IP table" . mysqli_error($conn));
+			}
+	}
+	else {
+		echo("Error inserting into owner table" . mysqli_error($conn));
+	}	
+
+	echo("Successful insertion into table!");
+
 }
 
 $conn->close(); 
