@@ -194,9 +194,12 @@ function required()
   <li><a href="search.html">Home</a></li>
   <li><a href="about.html">About</a></li>
   <li><a class="active" href="insert.html">Insert</a></li>
+  <li><a href="update.html">Update</a></li>
+  <li><a href="delete.html">Delete</a></li>
+  <li><a href="statistics.html">Statistics</a></li>
 </ul>
 
-<h1>Insert</h1>
+<h1>Insert Record</h1>
 
 <form name="theForm" action="insert_page.php" onsubmit="return required()" style="text-align:left">
 <center>
@@ -215,18 +218,24 @@ Type: <select name="copyrightType" id="copyType" onchange="ChangeDisplay()">
 </br>
 
 
-*Owner: 
-<input type="text" name="ownerName"> 
-</br>
-Owner Address:
-<input type="text" name="ownerAddress">
-</br>
-*URL:
-<input type="url" name="URL">
-</br>
-*Title:
-<input type="text" name="Title">
-</br>
+<table border="0">
+	<tr>
+		<td><label for="ownerName">*Owner:</label></td> 
+		<td><input type="text" id="ownerName" name="ownerName" /></td> 
+	</tr>	
+	<tr>
+		<td><label for="ownerAddress">Owner Address:</label></td>
+		<td><input type="text" id="ownerAddress" name="ownerAddress" /></td>
+	</tr>
+	<tr>
+		<td><label for="URL">*URL:</label></td>
+		<td><input type="url" id="URL" name="URL" /></td>
+	</tr>
+	<tr>
+		<td><label for="Title">*Title:</label></td>
+		<td><input type="text" id="Title" name="Title" /></td>
+	</tr>
+</table>
 
 <div id="copySelect">
 </br></br>Copyright Specific:</br>
