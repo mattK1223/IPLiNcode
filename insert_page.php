@@ -100,23 +100,26 @@ if($copyrightType === "copyright"){
 		
 	$sql1 = "INSERT INTO ip (url, IP_ownerName,Title) VALUES ('$URL', '$ownerN','$Title')";
 	$sql2 = "INSERT INTO owner ( name, address ) VALUES ('$ownerN', '$ownerA')";
-	$sql3 = "INSERT INTO copyright ( registrationNum, registrationDate, publicationDate, type ) VALUES ('$regNum','$regDate','$pubDate','$workType')";
 
-	if  ( $conn->query($sql1) === TRUE ) {}
-	else {
-		echo("Error inserting into IP table");
-	}
-		
-	if  ( $conn->query($sql2) === TRUE ) {}
-	else {
-		echo("Error inserting into IP table");
-	}
-		
-	if  ( $conn->query($sql3) === TRUE ) {}
-	else {
-		echo ("Error inserting into IP table");
-	}
+	if  ( $conn->query($sql2) === TRUE ) {
+		if  ( $conn->query($sql1) === TRUE ) {
+			$new_id = mysqli_insert_id($conn);
+			$sql3 = "INSERT INTO copyright ( id, registrationNum, registrationDate, publicationDate, type ) VALUES ('$new_id', '$regNum','$regDate','$pubDate','$workType')";
+			echo($new_id);
+			if  ( $conn->query($sql3) === TRUE ) {}
+				else {
+					echo ("Error inserting into copyright table" . mysqli_error($conn));
+				}
 	
+		}
+			else {
+				echo("Error inserting into IP table" . mysqli_error($conn));
+			}
+	}
+	else {
+		echo("Error inserting into owner table" . mysqli_error($conn));
+	}	
+
 	echo("Successful insertion into table!");
 }
 else if($copyrightType === "trademark"){
