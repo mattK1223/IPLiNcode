@@ -90,11 +90,6 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-form {
-	margin: 0 auto;
-	width: 550px;
-}
-
 </style>
 </head>
 <body>
@@ -112,6 +107,7 @@ form {
 <h2>Intellectual Property Licensing Network</h2>
 
 <form action="search_page.php">
+<center>
 <input type="text" name="keyword" placeholder="Keyword"> 
 <select name="table" id="tableSelect" onchange="populate(this.id,'fieldSelect')"> 
 	<option value="all">All</option>
@@ -127,6 +123,7 @@ form {
 	<option value="owner">Owner</option>
 </select>
 <input type="submit" value="Search">
+</center>
 </form>
 
 </body>

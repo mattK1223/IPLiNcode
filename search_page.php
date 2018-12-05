@@ -61,9 +61,12 @@ th, td {
 <body>
 
 <ul>
-  <li><a href="search.html">Home</a></li>
+  <li><a class="active" href="search.html">Home</a></li>
   <li><a href="about.html">About</a></li>
   <li><a href="insert.html">Insert</a></li>
+  <li><a href="update.html">Update</a></li>
+  <li><a href="delete.html">Delete</a></li>
+  <li><a href="statistics.html">Statistics</a></li>
 </ul>
 
 <h1>Results</h1>
@@ -119,10 +122,32 @@ if($table === "all"){
 	}
 }
 else if($table === "copyright"){
-	$newView = "CREATE VIEW allCp AS SELECT * FROM copyright INNER JOIN ip ON copyright.url=ip.url"; 
-	$conn->query($newView);
 	if($keyword == ""){
-		$sql = "SELECT * FROM allCp";
+		$sql = "SELECT * FROM AllCopyright";
+	}
+	else if($column === "url"){
+		$sql = "SELECT * FROM AllCopyright WHERE url = '$keyword'";
+	}
+	else if($column === "owner"){
+		$sql = "SELECT * FROM AllCopyright WHERE IP_ownerName = '$keyword'";
+	}
+	else if($column === "title"){
+		$sql = "SELECT * FROM AllCopyright WHERE Title = '$keyword'";
+	}
+	else if($column === "regNum"){
+		$sql = "SELECT * FROM AllCopyright WHERE registrationNum = '$keyword'";
+	}
+	else if($column === "regDate"){
+		$sql = "SELECT * FROM AllCopyright WHERE registrationDate = '$keyword'";
+	}
+	else if($column === "pubDate"){
+		$sql = "SELECT * FROM AllCopyright WHERE publicationDate = '$keyword'";
+	}
+	else if($column === "typeOfWork"){
+		$sql = "SELECT * FROM AllCopyright WHERE type = '$keyword'";
+	}
+	else if($column === "any"){
+		$sql = "SELECT * FROM AllCopyright WHERE url = '$keyword' OR IP_ownerName = '$keyword' OR Title = '$keyword' OR registrationNum = '$keyword' OR registrationDate = '$keyword' OR publicationDate = '$keyword' OR type = '$keyword'";
 	}
 	
 	$result = $conn->query($sql); 
@@ -139,16 +164,119 @@ else if($table === "copyright"){
 	}
 }
 else if($table === "trademark"){
-	echo "trademark";
+	if($keyword === ""){
+		$sql = "SELECT * FROM AllTrademark";
+	}
+	else if($column === "url"){
+		$sql = "SELECT * FROM AllTrademark WHERE url = '$keyword'";
+	}
+	else if($column === "owner"){
+		$sql = "SELECT * FROM AllTrademark WHERE IP_ownerName = '$keyword'";
+	}
+	else if($column === "title"){
+		$sql = "SELECT * FROM AllTrademark WHERE Title = '$keyword'";
+	}
+	else if($column === "serialNum"){
+		$sql = "SELECT * FROM AllTrademark WHERE serialNum = '$keyword'";
+	}
+	else if($column === "regNum"){
+		$sql = "SELECT * FROM AllTrademark WHERE registNum = '$keyword'";
+	}
+	else if($column === "status"){
+		$sql = "SELECT * FROM AllTrademark WHERE status = '$keyword'";
+	}
+	else if($column === "filingDate"){
+		$sql = "SELECT * FROM AllTrademark WHERE filingDate = '$keyword'";
+	}
+	else if($column === "any"){
+		$sql = "SELECT * FROM AllTrademark WHERE url = '$keyword' OR IP_ownerName = '$keyword' OR Title = '$keyword' OR serialNum = '$keyword' OR registNum = '$keyword' OR status = '$keyword' OR filingDate = '$keyword'";
+	}
+	
+	$result = $conn->query($sql); 
+	
+	if ($result->num_rows > 0) {
+		echo "<table><tr><th>Owner</th><th>URL</th><th>Title</th><th>Serial #</th><th>Registration #</th><th>Status</th><th>Filing Date</th></tr>";
+		while($row = $result->fetch_assoc()) {
+			echo "<tr><td>" . $row["IP_ownerName"]. "</td><td>" . $row["url"]. "</td><td>" . $row["Title"]. "</td><td>" . $row["serialNum"]. "</td><td>" . $row["registNum"]. "</td><td>" . $row["status"]. "</td><td>" . $row["filingDate"]. "</td></tr>"; 
+		}
+		echo "</table>";
+	}
+	else{
+		echo "No results found";
+	}
 }
 else if($table === "patent"){
-	echo "patent";
+	if($keyword === ""){
+		$sql = "SELECT * FROM AllPatent";   
+	}
+	else if($column === "url"){
+		$sql = "SELECT * FROM AllPatent WHERE url = '$keyword'";
+	}
+	else if($column === "owner"){
+		$sql = "SELECT * FROM AllPatent WHERE IP_ownerName = '$keyword'";
+	}
+	else if($column === "title"){
+		$sql = "SELECT * FROM AllPatent WHERE Title = '$keyword'";
+	}
+	else if($column === appNum){
+		$sql = "SELECT * FROM AllPatent WHERE appNum = '$keyword'";
+	}
+	else if($column === patentNum){
+		$sql = "SELECT * FROM AllPatent WHERE patentNum = '$keyword'";
+	}
+	else if($column === filingDate){
+		$sql = "SELECT * FROM AllPatent WHERE filingDate = '$keyword'";
+	}
+	else if($column === issueDate){
+		$sql = "SELECT * FROM AllPatent WHERE issueDate = '$keyword'";
+	}
+	else if($column === "any"){
+		$sql = "SELECT * FROM AllPatent WHERE url = '$keyword' OR IP_ownerName = '$keyword' OR Title = '$keyword' OR appNum = '$keyword' OR patentNum = '$keyword' OR filingDate = '$keyword' OR issueDate = '$keyword'";
+	}
+	
+	$result = $conn->query($sql); 
+	
+	if ($result->num_rows > 0) {
+		echo "<table><tr><th>Owner</th><th>URL</th><th>Title</th><th>Application #</th><th>Patent #</th><th>Filing Date</th><th>Issue Date</th></tr>";
+		while($row = $result->fetch_assoc()) {
+			echo "<tr><td>" . $row["IP_ownerName"]. "</td><td>" . $row["url"]. "</td><td>" . $row["Title"]. "</td><td>" . $row["appNum"]. "</td><td>" . $row["patentNum"]. "</td><td>" . $row["filingDate"]. "</td><td>" . $row["issueDate"]. "</td></tr>"; 
+		}
+		echo "</table>";
+	}
+	else{
+		echo "No results found";
+	}
 }
 else if($table === "youtubevid"){
+	if($keyword === ""){
+		$sql = "SELECT * FROM AllYoutubeVid";
+	}
+	else if($colummn === "url"){
+		$sql = "SELECT * FROM AllYoutubeVid WHERE url = '$keyword'";
+	}
+	else if($column === "owner"){
+		$sql = "SELECT * FROM AllYoutubeVid WHERE IP_ownerName = '$keyword'";
+	}
+	else if($column === "title"){
+		$sql = "SELECT * FROM AllYoutubeVid WHERE Title = '$keyword'";
+	}
+	else if($column === "pubDate"){
+		$sql = "SELECT * FROM AllYoutubeVid WHERE publicationDate = '$keyword'";
+	}
 	
+	$result = $conn->query($sql); 
+	
+	if ($result->num_rows > 0) {
+		echo "<table><tr><th>Owner</th><th>URL</th><th>Title</th><th>Publication Date</th></tr>";
+		while($row = $result->fetch_assoc()) {
+			echo "<tr><td>" . $row["IP_ownerName"]. "</td><td>" . $row["url"]. "</td><td>" . $row["Title"]. "</td><td>" . $row["publicationDate"]. "</td></tr>"; 
+		}
+		echo "</table>";
+	}
+	else{
+		echo "No results found";
+	}
 }
-
-
 
 $conn->close(); 
 
