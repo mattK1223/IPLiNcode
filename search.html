@@ -12,13 +12,16 @@
 			var optionArr = ["any|Any","url|URL", "title|Title","owner|Owner"];
 		} 
 		else if(ts.value == "copyright"){
-			var optionArr = ["any|Any","url|URL","title|Title","owner|Owner","regnum|Registration #","regDate|Registration Date","pubDate|Publication Date","typeOfWork|Type of Work"];
+			var optionArr = ["any|Any","url|URL","title|Title","owner|Owner","regNum|Registration #","regDate|Registration Date","pubDate|Publication Date","typeOfWork|Type of Work"];
 		}
 		else if(ts.value == "trademark"){
 			var optionArr = ["any|Any","url|URL","title|Title","owner|Owner","serialNum|Serial #","regNum|Registration #","status|Status","filingDate|Filing Date"];
 		}
 		else if(ts.value == "patent"){
-			var optionArr = ["any|Any","url|URL","title|Title","owner|Owner","appNum|Application #","patentNum|Patent #","filingDate|Filing Date","issueDate|Issue Date",""];
+			var optionArr = ["any|Any","url|URL","title|Title","owner|Owner","appNum|Application #","patentNum|Patent #","filingDate|Filing Date","issueDate|Issue Date"];
+		}
+		else if(ts.value == "youtubevid"){
+			var optionArr = ["any|Any","url|URL","title|Title","owner|Owner","pubDate|Publication Date"]; 
 		}
 		for(var option in optionArr){
 			var pair = optionArr[option].split("|");
@@ -112,6 +115,7 @@ form {
 	<option value="copyright">Copyright</option>
 	<option value="trademark">Trademark</option>
 	<option value="patent">Patent</option>
+	<option value="youtubevid">YouTube Video</option>
 </select>
 <select name="column" id="fieldSelect">
 	<option value="any">Any</option>
