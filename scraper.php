@@ -1,9 +1,9 @@
 <?php
-	// Need to set $link to the youtube video URL
+	// Need to set $url to the youtube video URL
 
 
 	require('simple_html_dom.php');
-	$html = file_get_html($link);
+	$html = file_get_html($url);
 	// $owner = $html->find('#owner-name.a.yt-simple-endpoint.style-scope.yt-formatted-string')
 	// $owner = $html->find('yt-formatted-string#owner-name.style-scope.ytd-video-owner-renderer');
 	// $ownerName = $owner->
