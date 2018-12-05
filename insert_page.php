@@ -88,15 +88,15 @@ $pubDate      =$_GET["publicationDate"];
 
 if($copyrightType === "copyright"){
 	if ( $ownerA === "" ) {
-		$ownerA = NULL; }
+		$ownerA = 'NULL'; }
 	if ( $regNum === "" ) {
-		$regNum = NULL; }
+		$regNum = 'NULL'; }
 	if ( $regDate === "" ) {
-		$regDate = NULL; }
+		$regDate = 'NULL'; }
 	if ( $pubDate === "" ) {
-		$pubDate= NULL; }
+		$pubDate= 'NULL'; }
 	if ( $workType === "" ) {
-		$workType= NULL; }
+		$workType= 'NULL'; }
 		
 	$sql1 = "INSERT INTO ip (url, IP_ownerName,Title) VALUES ('$URL', '$ownerN','$Title')";
 	$sql2 = "INSERT INTO owner ( name, address ) VALUES ('$ownerN', '$ownerA')";
