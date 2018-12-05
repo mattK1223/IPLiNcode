@@ -1,63 +1,108 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
-<style>
-
-body {
-	background-color: lightblue; 
-}
-
-/* Nav bar styling begins here */
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
-
-li {
-    float: left;
-	font-family: Arial, Helvetica, sans-serif;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-li a:hover:not(.active) {
-    background-color: #111;
-}
-
-.active {
-    background-color: #4CAF50;
-}
-/* nav bar styling ends here */
-
-h1 {
-	text-align: center; 
-	font-family: Arial, Helvetica, sans-serif; 
-}
-
-
-</style>
+	<title>IPLiN: Delete</title>
+	<link rel="stylesheet" type="text/css" href="project.css">
 </head>
 <body>
 
-<ul>
-  <li><a href="search.html">Home</a></li>
-  <li><a href="about.html">About</a></li>
-  <li><a href="insert.html">Insert</a></li>
-  <li><a href="update.html">Update</a></li>
-  <li><a class="active" href="delete.html">Delete</a></li>
-  <li><a href="statistics.html">Statistics</a></li>
-</ul>
+    <script>
+            function ChangeDisplay() {
+                var deleteType = document.getElementById("DeleteType");
+                var ownerDiv = document.getElementById("ownerDiv");
+                var ipDiv = document.getElementById("ipDiv");
+                var licenseDiv = document.getElementById("licenseDiv");
+                
+                if ( deleteType.value == "owner" ) {
+                    ipDiv.style.display = "none";
+                    licenseDiv.style.display = "none";
+                    ownerDiv.style.display = "block";
+                }
+                else if ( deleteType.value == "ip" ) {
+                    ownerDiv.style.display = "none";
+                    licenseDiv.style.display = "none";
+                    ipDiv.style.display = "block";
+                }
+                else if ( deleteType.value == "license" ) {
+                    ownerDiv.style.display = "none";
+                    ipDiv.style.display = "none";
+                    licenseDiv.style.display = "block";
+                }
+            }
+    </script>
 
-<h1>Delete Record</h1>
+    <ul>
+        <li><a href="search.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="insert.html">Insert</a></li>
+        <li><a href="update.html">Update</a></li>
+        <li><a class="active" href="delete.html">Delete</a></li>
+        <li><a href="statistics.html">Statistics</a></li>
+    </ul>
+
+    <h1>Delete Record</h1>
+
+    <form name="theForm" action="insert_page.php" onsubmit="return required()" style="text-align:left">
+        <center>
+            Would you like to delete information for an <b>Owner</b>, an <b>IP</b>, or a <b>License</b>?
+            <br/>
+            <br/>
+
+            <select name="TypeToDelete" id="DeleteType" onchange="ChangeDisplay()" title="Pick One">
+                <option selected value=""></option>
+                <option value="owner"> Owner </option>
+                <option value="ip"> IP </option>
+                <option value="license"> License </option>
+            </select>
+            <br/>
+            <br/>
+            <br/>
+
+            <div id="ownerDiv" visibility: hidden>
+                Please pick the Owners you would like to delete from the database.
+                <br/><br/>
+
+                <table border="1">
+                    <tr>
+                        <td></td>
+                        <td>Owner Name</td> 
+                        <td>Owner Address</td> 
+                    </tr>
+                </table>
+            </div>
+
+            <div id="ipDiv" visibility: hidden>
+                Please pick the IPs you would like to delete from the database.
+                <br/><br/>
+
+                <table border="1">
+                    <tr>
+                        <td></td>
+                        <td>url</td> 
+                        <td>Title</td> 
+                    </tr>
+                </table>
+            </div>
+
+            <div id="licenseDiv" visibility: hidden>
+                Please pick the IPs you would like to delete from the database.
+                <br/><br/>
+
+                <table border="1">
+                    <tr>
+                        <td></td>
+                        <td>Licensee</td> 
+                        <td>url</td> 
+                        <td>Title</td>
+                    </tr>
+                </table>
+            </div>
+
+
+
+
+        </center>
+    </form>
 
 </body>
 </html>
