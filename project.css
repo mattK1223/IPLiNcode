@@ -1,0 +1,39 @@
+	body {
+      	background-color: lightblue; 
+      }
+
+      /*Navigation Bar Styling*/
+      ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: #333;
+      }
+
+      li {
+          float: left;
+      	font-family: Arial, Helvetica, sans-serif;
+      }
+
+      li a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+      }
+
+      li a:hover:not(.active) {
+          background-color: #111;
+      }
+
+      .active {
+          background-color: #4CAF50;
+      }
+      /* nav bar styling ends here */
+
+      h1 {
+      	text-align: center; 
+      	font-family: Arial, Helvetica, sans-serif; 
+      }
