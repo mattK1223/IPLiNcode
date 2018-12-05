@@ -105,7 +105,6 @@ if($copyrightType === "copyright"){
 		if  ( $conn->query($sql1) === TRUE ) {
 			$new_id = mysqli_insert_id($conn);
 			$sql3 = "INSERT INTO copyright ( id, registrationNum, registrationDate, publicationDate, type ) VALUES ('$new_id', '$regNum','$regDate','$pubDate','$workType')";
-			echo($new_id);
 			if  ( $conn->query($sql3) === TRUE ) {}
 				else {
 					echo ("Error inserting into copyright table" . mysqli_error($conn));
