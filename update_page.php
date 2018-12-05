@@ -160,6 +160,7 @@ else if($table === "patent"){
 		$patentNum = $row["patentNum"];
 		$filingDate = $row["filingDate"];
 		$issueDate = $row["issueDate"];
+		$abstract = $row["abstract"];
 		echo "<form action='update_result_patent.php'><center><table>";
 		echo "<input type='hidden' name='id' value='$id' />";
 		echo "<tr><td><label value='url'>URL:</label></td><td><input type='text' id='url' name='url' value='$url'/></td></tr>";
@@ -169,6 +170,7 @@ else if($table === "patent"){
 		echo "<tr><td><label value='patentNum'>Patent #:</label></td><td><input type='text' id='patentNum' name='patentNum' value='$patentNum'/></td></tr>";
 		echo "<tr><td><label value='filingDate'>Filing Date:</label></td><td><input type='text' id='filingDate' name='filingDate' value = '$filingDate'/></td></tr>";
 		echo "<tr><td><label value='issueDate'>Issue Date:</label></td><td><input type='text' id='issueDate' name='issueDate' value = '$issueDate'/></td></tr>";
+		echo "<tr><td><label value='abstract'>Abstract:</label></td><td><input type='text' id='abstract' name='abstract' value = '$abstract'/></td></tr>";
 		echo "</table></br></br><input type='submit' value='Update'>";
 		echo "</center></form>";
 	}
