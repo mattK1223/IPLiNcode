@@ -238,6 +238,14 @@ function required()
 	return false;
 	}
 
+	var Type = document.getElementById("copyType");	
+	var licenseName = document.forms["theForm"]["LiName"].value;
+	if ( Type.value == "license" && licenseName == "")
+	{
+		alert("Please input a License Name");
+		return false;
+	}
+
 	return true;
 }
 </script>
@@ -375,7 +383,7 @@ Publication Date:
 </br></br> License Specifics:</br>
 </div>
 <div id="licenseName" style="display:none">
-License Name:
+*License Name:
 <input type="text" name="LiName" >
 </br>
 </div>
