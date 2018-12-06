@@ -86,7 +86,6 @@ $status       =$_GET["status"];
 $filingDate   =$_GET["filingDate"];
 $pubDate      =$_GET["publicationDate"];
 $licenseName  =$_GET["LiName"];
-$License_id   =$_GET["LiID"];
 $startDate    =$_GET["Listart"];
 $endDate      =$_GET["LiEnd"];
 $payment      =$_GET["LiPay"];
