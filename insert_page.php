@@ -85,7 +85,11 @@ $registNum    =$_GET["registNum"];
 $status       =$_GET["status"];
 $filingDate   =$_GET["filingDate"];
 $pubDate      =$_GET["publicationDate"];
-
+$licenseName  =$_GET["LiName"];
+$License_id   =$_GET["LiID"];
+$startDate    =$_GET["Listart"];
+$endDate      =$_GET["LiEnd"];
+$payment      =$_GET["LiPay"];
 if($copyrightType === "copyright"){
 	if ( $ownerA === "" ) {
 		$ownerA = 'NULL'; }
@@ -224,7 +228,40 @@ else if($copyrightType === "youtubevideo"){
 	echo("Successful insertion into table!");
 
 }
+else if($copyrightType === "license"){
+	if ( $ownerA === "" ) {
+		$ownerA = 'NULL'; }
+	if ( $startDate == "" ) {
+		$startDate = 'NULL'; }
+	if ( $endDate == "" ) {
+		$endDate = 'NULL'; }
+	if ( $payment == "" ) {
+		$payment = 'NULL'; }
 
+	$sql1 = "INSERT INTO ip (url, IP_ownerName,Title) VALUES ('$URL', '$ownerN','$Title')";
+	$sql2 = "INSERT INTO owner ( name, address ) VALUES ('$ownerN', '$ownerA')";
+
+	if  ( $conn->query($sql2) === TRUE ) {
+		if  ( $conn->query($sql1) === TRUE ) {
+			$new_id = mysqli_insert_id($conn);
+			$sql3 = "INSERT INTO license ( licenseeName, License_id, startDate, endDate, payment) VALUES ('$licenseName','$new_id', '$startDate', '$endDate', '$payment')";
+			if  ( $conn->query($sql3) === TRUE ) {}
+				else {
+					echo ("Error inserting into license table" . mysqli_error($conn));
+				}
+	
+		}
+			else {
+				echo("Error inserting into IP table" . mysqli_error($conn));
+			}
+	}
+	else {
+		echo("Error inserting into owner table" . mysqli_error($conn));
+	}	
+
+	echo("Successful insertion into table!");
+
+}
 $conn->close(); 
 ?>
 

@@ -85,13 +85,21 @@ function ChangeDisplay() {
 
 	var youtubeSelect = document.getElementById("youtubeSelect");
 	
+	var licenseSelect =document.getElementById("licenseSelect");
+	var licenseName =document.getElementById("licenseName");
+	var licenseID =document.getElementById("licenseID");
+	var startDate =document.getElementById("startDate");
+	var endDate =document.getElementById("endDate");
+	var payment =document.getElementById("payment");
+	
+	
 	if ( copyrightType.value == "copyright" )
 	{
-	copySelect.style.display = "block";
-	regNum.style.display="initial";
-	regDate.style.display="initial";
-	pubDate.style.display="initial";
-	workType.style.display="initial";
+	copySelect.style.display = "table-row";
+	regNum.style.display="table-row";
+	regDate.style.display="table-row";
+	pubDate.style.display="table-row";
+	workType.style.display="table-row";
 	patentSelect.style.display="none";
 	appNum.style.display="none";
 	patentNum.style.display="none";
@@ -103,6 +111,12 @@ function ChangeDisplay() {
 	registNum.style.display="none";
 	status.style.display="none";	
 	youtubeSelect.style.display="none";
+	licenseSelect.style.display="none";
+	licenseName.style.display="none";
+	licenseID.style.display="none";
+	startDate.style.display="none";
+	endDate.style.display="none";
+	payment.style.display="none";
 	}
 	else if ( copyrightType.value == "patent" )
 	{
@@ -111,17 +125,23 @@ function ChangeDisplay() {
 	regDate.style.display="none";
 	pubDate.style.display="none";
 	workType.style.display="none";
-	patentSelect.style.display="initial";
-	appNum.style.display="initial";
-	patentNum.style.display="initial";
-	filingDate.style.display="initial";
-	issueDate.style.display="initial";
-	abstract.style.display="initial";
+	patentSelect.style.display="table-row";
+	appNum.style.display="table-row";
+	patentNum.style.display="table-row";
+	filingDate.style.display="table-row";
+	issueDate.style.display="table-row";
+	abstract.style.display="table-row";
 	tradeSelect.style.display="none";
 	serialNum.style.display="none";
 	registNum.style.display="none";
 	status.style.display="none";
 	youtubeSelect.style.display="none";
+	licenseSelect.style.display="none";
+	licenseName.style.display="none";
+	licenseID.style.display="none";
+	startDate.style.display="none";
+	endDate.style.display="none";
+	payment.style.display="none";
 	}
 	else if ( copyrightType.value == "trademark" )
 	{
@@ -135,12 +155,18 @@ function ChangeDisplay() {
 	patentNum.style.display="none";
 	issueDate.style.display="none";
 	abstract.style.display="none";
-	tradeSelect.style.display="initial";
-	serialNum.style.display="initial";
-	registNum.style.display="initial";
-	status.style.display="initial";
-	filingDate.style.display="initial";	
+	tradeSelect.style.display="table-row";
+	serialNum.style.display="table-row";
+	registNum.style.display="table-row";
+	status.style.display="table-row";
+	filingDate.style.display="table-row";	
 	youtubeSelect.style.display="none";
+	licenseSelect.style.display="none";
+	licenseName.style.display="none";
+	licenseID.style.display="none";
+	startDate.style.display="none";
+	endDate.style.display="none";
+	payment.style.display="none";
 	}
 	else if ( copyrightType.value == "youtubevideo" )
 	{
@@ -158,8 +184,39 @@ function ChangeDisplay() {
 	registNum.style.display="none";
 	status.style.display="none";
 	filingDate.style.display="none";	
-	youtubeSelect.style.display="initial";
-	pubDate.style.display="initial";
+	youtubeSelect.style.display="table-row";
+	pubDate.style.display="table-row";
+	licenseSelect.style.display="none";
+	licenseName.style.display="none";
+	licenseID.style.display="none";
+	startDate.style.display="none";
+	endDate.style.display="none";
+	payment.style.display="none";
+	}
+	else
+	{
+	copySelect.style.display = "none";
+	regNum.style.display="none";
+	regDate.style.display="none";
+	workType.style.display="none";
+	patentSelect.style.display="none";
+	appNum.style.display="none";
+	patentNum.style.display="none";
+	issueDate.style.display="none";
+	abstract.style.display="none";
+	tradeSelect.style.display="none";
+	serialNum.style.display="none";
+	registNum.style.display="none";
+	status.style.display="none";
+	filingDate.style.display="none";	
+	youtubeSelect.style.display="none";
+	pubDate.style.display="none";
+	licenseSelect.style.display="table-row";
+	licenseName.style.display="table-row";
+	licenseID.style.display="table-row";
+	startDate.style.display="table-row";
+	endDate.style.display="table-row";
+	payment.style.display="table-row";
 	}
 }
 
@@ -212,6 +269,7 @@ Type: <select name="copyrightType" id="copyType" onchange="ChangeDisplay()">
 	<option value="patent"> Patent </option>
 	<option value="trademark"> Trademark </option>
 	<option value="youtubevideo"> Youtube Video </option>
+	<option value="license"> License </option>
 </select>
 
 
@@ -316,6 +374,36 @@ Publication Date:
 <input type="date" name="publicationDate">
 </br>
 </div>
+
+<div id="licenseSelect" style="display:none">
+</br></br> License Specifics:</br>
+</div>
+<div id="licenseName" style="display:none">
+License Name:
+<input type="text" name="LiName" >
+</br>
+</div>
+<div id="licenseID" style="display:none">
+License ID:
+<input type="text" name="LiID">
+</br>
+</div>
+<div id="startDate" style="display:none">
+Start Date:
+<input type="date" name="Listart" >
+</br>
+</div>
+<div id="endDate" style="display:none">
+End Date:
+<input type="date" name="LiEnd">
+</br>
+</div>
+<div id="payment" style="display:none">
+Payment:
+<input type="text" name="LiPay" >
+</br>
+</div>
+
 
 </br>
 </br>
