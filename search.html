@@ -23,6 +23,9 @@
 		else if(ts.value == "youtubevid"){
 			var optionArr = ["any|Any","url|URL","title|Title","owner|Owner","pubDate|Publication Date"]; 
 		}
+		else if(ts.value == "license"){
+			var optionArr = ["any|Any","url|URL","Title|Title","IP_ownerName|Owner","licenseeName|Licensee","startDate|Start Date","endDate|End Date","payment|Payment"];
+		}
 		for(var option in optionArr){
 			var pair = optionArr[option].split("|");
 			var newOption = document.createElement("option");
@@ -115,6 +118,7 @@ input[type="submit"] {
 	<option value="trademark">Trademark</option>
 	<option value="patent">Patent</option>
 	<option value="youtubevid">YouTube Video</option>
+	<option value="license">License</option>
 </select>
 <select name="column" id="fieldSelect">
 	<option value="any">Any</option>

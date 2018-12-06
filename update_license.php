@@ -68,23 +68,18 @@ input[type="submit"] {
   <li><a href="statistics.html">Statistics</a></li>
 </ul>
 
-<h1>Update IP</h1>
+<h1>Update License</h1>
 
-<form action="update_page.php">
+<form action="update_license_input.php">
 <center>
 <table border="0">
 	<tr>
-		<td><label for="table">Type</label></td>
-		<td><select id="table" name="table">
-				<option value="copyright">Copyright</option>
-				<option value="trademark">Trademark</option>
-				<option value="patent">Patent</option>
-				<option value="youtubevid">YouTube Video</option>
-			</select></td>
-	</tr>
-	<tr>
 		<td><label for="url">URL:</label></td>
 		<td><input type="text" id="url" name="url" /></td>
+	</tr>
+	<tr>
+		<td><label for="url">Licensee:</label></td>
+		<td><input type="text" id="licensee" name="licensee" /></td>
 	</tr>
 </table>
 </br>
@@ -92,16 +87,5 @@ input[type="submit"] {
 <input type="submit" value="Find">
 </center>
 </form>
-
-</br>
-</br>
-</br>
-
-<form action="update_license.php">
-<center>
-<input type="submit" value="Update License">
-</center>
-</form>
-
 </body>
 </html>
