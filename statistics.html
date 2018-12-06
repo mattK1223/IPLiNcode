@@ -1,53 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-
-body {
-	background-color: lightblue; 
-}
-
-/* Nav bar styling begins here */
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
-
-li {
-    float: left;
-	font-family: Arial, Helvetica, sans-serif;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-li a:hover:not(.active) {
-    background-color: #111;
-}
-
-.active {
-    background-color: #4CAF50;
-}
-/* nav bar styling ends here */
-
-h1 {
-	text-align: center; 
-	font-family: Arial, Helvetica, sans-serif; 
-}
-
-
-</style>
+	<link rel="stylesheet" type="text/css" href="project.css">
 </head>
 <body>
 
+<script>
+function ChangeDisplay() {
+	var IP = document.getElementById("startSearch");
+	var workType = document.getElementById("divType");
+	var patNum = document.getElementById("divPat");
+	var status = document.getElementById("divStatus");
+	
+	if ( IP.value == "copyright" )
+	{
+		workType.style.display = "table-row";
+		patNum.style.display = "none";
+		status.style.display = "none";
+	}
+	else if ( IP.value == "patent" )
+	{
+		workType.style.display="none";
+		patNum.style.display="table-row";
+		status.style.display="none";
+	}
+	else if ( IP.value == "trademark" )
+	{
+		workType.style.display="none";
+		patNum.style.display="none";
+		status.style.display="table-row";
+	}
+	else
+	{
+		workType.style.display="none";
+		patNum.style.display="none";
+		status.style.display="none";
+	}
+}
+</script>
 <ul>
   <li><a href="search.html">Home</a></li>
   <li><a href="about.html">About</a></li>
@@ -59,5 +49,27 @@ h1 {
 
 <h1>Statistics</h1>
 
+<form name="theForm" action="statistics_page.php">
+<center>
+Select a table and enter the desired query</br>
+This will return the amount of tuples that match the specifications</br></br>
+
+<select name="startSearch" id="startSearch" onchange="ChangeDisplay()">
+	<option selected value="copyright"> Copyright </option>
+	<option value="license"> License </option>
+	<option value="patent"> Patent </option>
+	<option value="trademark"> Trademark </option>
+	<option value="youtube"> Youtube Video </option>
+</select> 
+<table>
+<tr> <td>Title:</td><td> <input type="text" name="title" value="Any"> </td> </tr> 
+<tr> <td>Owner's Name:</td><td> <input type="text" name="ownerN" value="Any"> </td> </tr> 
+<tr id="divType"> <td>Type of Work:</td><td> <input type="text" name="type" value="Any"> </td> </tr>
+<tr id="divPat" style="display:none"> <td>Patent Number:</td><td> <input type="text" name="patNum" value="Any"> </td> </tr> 
+<tr id="divStatus" style="display:none"> <td>Status:</td><td> <input type="text" name="status" value="Any"> </td> </tr> 
+</table>
+<input type="submit" value="Get Statistics">
+</center>
+</form>
 </body>
 </html>
