@@ -258,7 +258,7 @@ else if($table === "youtubevid"){
 	if($keyword === ""){
 		$sql = "SELECT * FROM AllYoutubeVid";
 	}
-	else if($colummn === "url"){
+	else if($column === "url"){
 		$sql = "SELECT * FROM AllYoutubeVid WHERE url = '$keyword'";
 	}
 	else if($column === "owner"){
