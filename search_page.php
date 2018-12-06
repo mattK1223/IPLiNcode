@@ -199,7 +199,7 @@ else if($table === "trademark"){
 		$sql = "SELECT * FROM AllTrademark WHERE url = '$keyword' OR IP_ownerName LIKE '%$keyword%' OR Title LIKE '%$keyword%' OR serialNum = '$keyword' OR registNum = '$keyword' OR status = '$keyword' OR filingDate = '$keyword'";
 	}
 	
-	$result = $conn->query($sql); 
+	$result = $conn->query($sql);
 	echo "<h2>Returned '$result->num_rows' results</h2>";
 	if ($result->num_rows > 0) {
 		echo "<table><tr><th>Owner</th><th>URL</th><th>Title</th><th>Serial #</th><th>Registration #</th><th>Status</th><th>Filing Date</th></tr>";
@@ -225,16 +225,16 @@ else if($table === "patent"){
 	else if($column === "title"){
 		$sql = "SELECT * FROM AllPatent WHERE Title LIKE '%$keyword%'";
 	}
-	else if($column === appNum){
+	else if($column === "appNum"){
 		$sql = "SELECT * FROM AllPatent WHERE appNum = '$keyword'";
 	}
-	else if($column === patentNum){
+	else if($column === "patentNum"){
 		$sql = "SELECT * FROM AllPatent WHERE patentNum = '$keyword'";
 	}
-	else if($column === filingDate){
+	else if($column === "filingDate"){
 		$sql = "SELECT * FROM AllPatent WHERE filingDate = '$keyword'";
 	}
-	else if($column === issueDate){
+	else if($column === "issueDate"){
 		$sql = "SELECT * FROM AllPatent WHERE issueDate = '$keyword'";
 	}
 	else if($column === "any"){
