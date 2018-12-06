@@ -1,6 +1,7 @@
  <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="project.css">
 <style>
 body{
 	background-color: lightblue;
@@ -52,7 +53,10 @@ th, td {
 <ul>
   <li><a href="search.html">Home</a></li>
   <li><a href="about.html">About</a></li>
-  <li><a href="insert.html">Insert</a></li>
+  <li><a class="active" href="insert.html">Insert</a></li>
+  <li><a href="update.html">Update</a></li>
+  <li><a href="delete.html">Delete</a></li>
+  <li><a href="statistics.html">Statistics</a></li>
 </ul>
 
 <h1>Results</h1>
