@@ -8,13 +8,13 @@ FROM ip
 INNER JOIN patent ON ip.id=patent.id;
 
 CREATE VIEW AllTrademark AS SELECT ip.id,ip.url,ip.IP_ownerName,ip.Title,trademark.serialNum,trademark.registNum,trademark.status,trademark.filingDate
-FROM ip
-INNER JOIN patent ON ip.id=trademark.id;
+FROM ip, trademark
+INNER JOIN trademark ON ip.id=trademark.id;
 
 CREATE VIEW AllYoutubeVid AS SELECT ip.id,ip.url,ip.IP_ownerName,ip.Title,youtubevideo.publicationDate
 FROM ip
 INNER JOIN youtubevideo ON ip.id=youtubevideo.id;
 
-CREATE VIW AllLicense AS SELECT ip.url,ip.IP_ownerName,ip.Title,license.licenseeName,license.startDate,license.endDate,license.payment
+CREATE VIEW AllLicense AS SELECT ip.url,ip.IP_ownerName,ip.Title,license.licenseeName,license.startDate,license.endDate,license.payment
 FROM ip
 INNER JOIN license ON license.License_id=ip.id
