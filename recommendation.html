@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" href="project.css">
+
+</head>
+<body>
+
+<!-- Nav Bar -->
+<ul>
+  <li><a href="search.html">Home</a></li>
+  <li><a href="about.html">About</a></li>
+  <li><a href="insert.html">Insert</a></li>
+  <li><a href="update.html">Update</a></li>
+  <li><a href="delete.html">Delete</a></li>
+  <li><a href="statistics.html">Statistics</a></li>
+  <li><a class="active" href="recommendation.html">Recommendations</a><li>
+</ul>
+
+<h1>Recommendations</h1>
+<h2>Having trouble finding an IP to license? See our most popular IPs here</h2>
+</br>
+
+<form action="recommendation.php" method="post">
+<center>
+	<table border="0">
+		<tr>
+			<td><label for="table">Most Popular IPs For:</label></td>
+			<td><select id="table" name="table">
+				<option value="ip">All</option>
+				<option value="copyright">Copyright</option>
+				<option value="trademark">Trademark</option>
+				<option value="patent">Patent</option>
+			</select></td>
+		</tr>
+	</table>
+	</br>
+	</br>
+	<input type="submit" value="Find">
+</center>
+</form>
+
+</body>
+</html>
