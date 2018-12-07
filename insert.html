@@ -64,6 +64,8 @@
 		<script>
 		function ChangeDisplay() {
 			var copyrightType = document.getElementById("copyType");
+
+			var yt_Autofill_Button = document.getElementById("ytAuto");
 			
 			var copySelect = document.getElementById("copySelect");
 			var regNum = document.getElementById("regNum");
@@ -115,6 +117,8 @@
 				startDate.style.display="none";
 				endDate.style.display="none";
 				payment.style.display="none";
+
+				yt_Autofill_Button.style.display="none";
 			}
 			else if ( copyrightType.value == "patent" )
 			{
@@ -139,6 +143,8 @@
 				startDate.style.display="none";
 				endDate.style.display="none";
 				payment.style.display="none";
+
+				yt_Autofill_Button.style.display="none";
 			}
 			else if ( copyrightType.value == "trademark" )
 			{
@@ -163,6 +169,8 @@
 				startDate.style.display="none";
 				endDate.style.display="none";
 				payment.style.display="none";
+
+				yt_Autofill_Button.style.display="none";
 			}
 			else if ( copyrightType.value == "youtubevideo" )
 			{
@@ -187,6 +195,8 @@
 				startDate.style.display="none";
 				endDate.style.display="none";
 				payment.style.display="none";
+
+				yt_Autofill_Button.style.display="table-row";
 			}
 			else
 			{
@@ -291,7 +301,7 @@
 			<td><label for="URL">*URL:</label></td>
 			<td><input type="url" id="URL" name="URL" /></td>
 <!-- YTAUTOFILL -->
-			<td><input type="submit" id="ytAuto" name="ytAuto" value="Autofill" visibility: hidden/></td>
+			<td><input type="submit" id="ytAuto" name="ytAuto" value="Autofill" style="display:none" action="insert_ytfill.php"/></td>
 		</tr>
 		<tr>
 			<td><label for="Title">*Title:</label></td>
