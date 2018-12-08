@@ -37,11 +37,12 @@ input[type="submit"] {
 <h1>YouTube Autofill Insert</h1>
 <h2>Test our web scraper by inserting a URL, then pressing Autofill!</h2>
 
-<form action='insert_ytfill.php'>
+<form action='insert_ytfill.php' method='post'>
 <center>
 <table border='0'>
 	<tr><td><label for='url'>URL:</label></td><td><input type='text' name='url' /></td><tr>
 	<tr><td><label for='owner'>Owner:</label></td><td><input type='text' name='owner' /></td><tr>
+	<tr><td><label for='ownerAddress'>Owner Address:</label></td><td><input type='text' name='ownerAddress' /></td><tr>
 	<tr><td><label for='title'>Title:</label></td><td><input type='text' name='title' /></td><tr>
 	<tr><td><label for='pubDate'>Publication Date:</label></td><td><input type='text' name='pubDate' /></td><tr>
 </table>
